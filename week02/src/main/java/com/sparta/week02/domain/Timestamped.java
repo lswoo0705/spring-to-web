@@ -15,6 +15,6 @@ public abstract class Timestamped {     // abstract : 상속으로만 사용할 
     @CreatedDate // 생성일자임을 나타냅니다.
     private LocalDateTime createdAt;
 
-    @LastModifiedDate // 마지막 수정일자임을 나타냅니다.
+    @LastModifiedDate // 마지막 수정일자임을 나타냅니다. 처음 생성과 동시에 수정일자도 적용됨.
     private LocalDateTime modifiedAt;
 }
