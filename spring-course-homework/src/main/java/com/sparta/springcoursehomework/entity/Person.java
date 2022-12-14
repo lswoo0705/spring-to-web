@@ -1,49 +1,43 @@
 package com.sparta.springcoursehomework.entity;
 
+import com.sparta.springcoursehomework.dto.PersonRequestDto;
+import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+
+@Getter
+@NoArgsConstructor
+@Entity
 public class Person {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
+
+    @Column(nullable = false)
     private String name;
+
+    @Column(nullable = false)
     private int age;
+
+    @Column(nullable = false)
     private String gender;
-    private String address;
-    private String job;
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
+    public Person(String name, int age, String gender) {
         this.name = name;
-    }
-
-    public int getAge() {
-        return age;
-    }
-
-    public void setAge(int age) {
         this.age = age;
-    }
-
-    public String getGender() {
-        return gender;
-    }
-
-    public void setGender(String gender) {
         this.gender = gender;
     }
 
-    public String getAddress() {
-        return address;
+    public Person(PersonRequestDto requestDto) {
+        this.name = requestDto.getName();
+        this.age = requestDto.getAge();
+        this.gender = requestDto.getGender();
     }
 
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
-    public String getJob() {
-        return job;
-    }
-
-    public void setJob(String job) {
-        this.job = job;
+    public void update(PersonRequestDto requestDto) {
+        this.name = requestDto.getName();
+        this.age = requestDto.getAge();
+        this.gender = requestDto.getGender();
     }
 }
