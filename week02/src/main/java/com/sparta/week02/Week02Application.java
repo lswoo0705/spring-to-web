@@ -12,7 +12,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 
 import java.util.List;
 
-@EnableJpaAuditing  // 이게 있어야 수정일자가 스프링을 통해 반영이 된다.
+@EnableJpaAuditing
 @SpringBootApplication
 public class Week02Application {
 
@@ -34,7 +34,6 @@ public class Week02Application {
                 System.out.println(course.getTutor());
             }
 
-//            Course new_course = new Course("웹개발의 봄, Spring", "임민영"); -> 아래줄과 같이 dto를 사용
             CourseRequestDto requestDto = new CourseRequestDto("웹개발의 봄, Spring", "임민영");
             courseService.update(1L, requestDto);
             courseList = courseRepository.findAll();
@@ -44,8 +43,6 @@ public class Week02Application {
                 System.out.println(course.getTitle());
                 System.out.println(course.getTutor());
             }
-
-            courseRepository.deleteAll();
         };
     }
 }
