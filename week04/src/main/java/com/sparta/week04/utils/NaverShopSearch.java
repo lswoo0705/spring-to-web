@@ -1,4 +1,4 @@
-package com.sparta.week4.utils;
+package com.sparta.week04.utils;
 
 import org.springframework.http.*;
 import org.springframework.web.client.RestTemplate;
